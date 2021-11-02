@@ -16,7 +16,8 @@ public class PascalTrianglePattern {
 
             // work : star
             for (int countOfStar = 1; countOfStar <= noOfStar; countOfStar++) {
-                System.out.print("*\t");
+                int val = calculateNCR(row-1, countOfStar - 1);
+                System.out.print(val + "\t");
             }
 
             // changes
@@ -24,5 +25,21 @@ public class PascalTrianglePattern {
             noOfStar++;
             row++;
         }
+    }
+
+    public static int calculateNCR(int n, int r) {
+        return factorial(n)/(factorial(r)* factorial(n - r));
+    }
+
+    public static int factorial(int number) {
+
+        int fact = 1;
+
+        while (number >= 1) {
+            fact = fact * number;
+            number--;
+        }
+
+        return fact;
     }
 }
