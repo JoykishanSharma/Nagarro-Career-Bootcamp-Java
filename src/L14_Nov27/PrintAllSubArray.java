@@ -5,7 +5,7 @@ public class PrintAllSubArray {
 
         int[] intArray = {10, 20, 30, 40};
 
-        findSubArray1(intArray);
+        findMaxSubArray2(intArray);
     }
 
     private static void findSubArray1(int[] intArray) {
@@ -21,6 +21,25 @@ public class PrintAllSubArray {
     }
 
     private static void findSubArray2(int[] intArray) {
+        for (int i = 0; i < intArray.length; i++) {
+            int sum = 0;
+            for (int j = i; j < intArray.length; j++) {
+                sum += intArray[j];
+                System.out.println(sum);
+            }
+        }
+    }
 
+    private static void findMaxSubArray2(int[] intArray) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < intArray.length; i++) {
+            int sum = 0;
+            for (int j = i; j < intArray.length; j++) {
+                sum += intArray[j];
+                if (sum > max) max = sum;
+            }
+        }
+
+        System.out.println(max);
     }
 }
